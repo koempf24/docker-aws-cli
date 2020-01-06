@@ -1,5 +1,5 @@
 ```shell script
-docker -itd run --name docker-aws-cli itkos/docker-aws-cli
+docker run -itd --name docker-aws-cli itkos/docker-aws-cli
 docker exec -ti docker-aws-cli /bin/sh
 
 export AWS_ACCESS_KEY_ID="..."

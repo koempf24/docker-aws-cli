@@ -13,6 +13,7 @@ ENV TERRAFORM_VERSION="0.12.24"
 RUN echo -e "http://nl.alpinelinux.org/alpine/v3.10/main\nhttp://nl.alpinelinux.org/alpine/v3.10/community" > /etc/apk/repositories
 
 RUN apk --update add \
+    bash \
     python \
     python-dev \
     py-pip \

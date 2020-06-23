@@ -2,13 +2,13 @@
 FROM docker:stable
 
 # @see https://github.com/kubernetes/kubernetes/releases
-ENV KUBE_LATEST_VERSION="v1.18.3"
+ENV KUBE_LATEST_VERSION="v1.18.4"
 
 # @see https://github.com/helm/helm/releases
-ENV HELM_VERSION="v3.2.1"
+ENV HELM_VERSION="v3.2.4"
 
 # @see https://www.terraform.io/downloads.html
-ENV TERRAFORM_VERSION="0.12.25"
+ENV TERRAFORM_VERSION="0.12.26"
 
 RUN echo -e "http://nl.alpinelinux.org/alpine/v3.10/main\nhttp://nl.alpinelinux.org/alpine/v3.10/community" > /etc/apk/repositories
 

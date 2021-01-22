@@ -1,5 +1,5 @@
 # @see https://hub.docker.com/_/docker
-FROM docker:stable
+FROM docker:20.10.2-dind
 
 # @see https://github.com/kubernetes/kubernetes/releases
 ENV KUBE_LATEST_VERSION="v1.20.2"

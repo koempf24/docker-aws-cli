@@ -2,13 +2,13 @@
 FROM docker:stable
 
 # @see https://github.com/kubernetes/kubernetes/releases
-ENV KUBE_LATEST_VERSION="v1.18.8"
+ENV KUBE_LATEST_VERSION="v1.20.2"
 
 # @see https://github.com/helm/helm/releases
-ENV HELM_VERSION="v3.3.0"
+ENV HELM_VERSION="v3.5.0"
 
 # @see https://www.terraform.io/downloads.html
-ENV TERRAFORM_VERSION="0.13.0"
+ENV TERRAFORM_VERSION="0.14.5"
 
 RUN apk --update add \
     bash \

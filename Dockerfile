@@ -12,6 +12,8 @@ ENV TERRAFORM_VERSION="0.14.5"
 
 RUN apk --update add \
     bash \
+    python3 \
+    python3-dev \
     py-pip \
     jq \
     curl \

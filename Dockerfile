@@ -21,8 +21,9 @@ RUN apk --update add \
     tzdata \
     php \
     php-openssl \
-    php-json \
-    docker-php-ext-install curl
+    php-json
+
+RUN docker-php-ext-install curl
 
 # kubectl
 RUN curl -L https://storage.googleapis.com/kubernetes-release/release/${KUBE_LATEST_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \

@@ -1,14 +1,15 @@
 # @see https://hub.docker.com/_/docker
-FROM docker:20.10.2-dind
+FROM docker:20.10.3-dind
 
 # @see https://github.com/kubernetes/kubernetes/releases
-ENV KUBE_LATEST_VERSION="v1.20.2"
+ENV KUBE_LATEST_VERSION="v1.20.4"
 
 # @see https://github.com/helm/helm/releases
-ENV HELM_VERSION="v3.5.0"
+ENV HELM_VERSION="v3.5.2"
 
 # @see https://www.terraform.io/downloads.html
-ENV TERRAFORM_VERSION="0.14.5"
+ENV TERRAFORM_VERSION_13="0.13.6"
+ENV TERRAFORM_VERSION_14="0.14.7"
 
 RUN apk --update add \
     bash \
@@ -34,8 +35,8 @@ RUN curl -L https://storage.googleapis.com/kubernetes-release/release/${KUBE_LAT
  # awscli
  && pip install awscli \
  # Terraform
- && wget -q https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
- && unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/local/bin \
- && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
+ && curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash
+ && tfswitch ${TERRAFORM_VERSION_13}
+ && tfswitch ${TERRAFORM_VERSION_14}
  # Clean up
  && rm /var/cache/apk/*

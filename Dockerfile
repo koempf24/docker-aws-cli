@@ -35,8 +35,8 @@ RUN curl -L https://storage.googleapis.com/kubernetes-release/release/${KUBE_LAT
  # awscli
  && pip install awscli \
  # Terraform
- && curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash
- && tfswitch ${TERRAFORM_VERSION_13}
- && tfswitch ${TERRAFORM_VERSION_14}
+ && curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash \
+ && tfswitch ${TERRAFORM_VERSION_13} \
+ && tfswitch ${TERRAFORM_VERSION_14} \
  # Clean up
  && rm /var/cache/apk/*

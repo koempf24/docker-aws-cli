@@ -8,8 +8,7 @@ ENV KUBE_LATEST_VERSION="v1.20.4"
 ENV HELM_VERSION="v3.5.2"
 
 # @see https://www.terraform.io/downloads.html
-ENV TERRAFORM_VERSION_13="0.13.6"
-ENV TERRAFORM_VERSION_14="0.14.7"
+ENV TERRAFORM_VERSION="0.13.6"
 
 RUN apk --update add \
     bash \
@@ -35,10 +34,8 @@ RUN curl -L https://storage.googleapis.com/kubernetes-release/release/${KUBE_LAT
  # awscli
  && pip install awscli \
  # Terraform
- && apk add --no-cache --virtual .tfswitch-build-deps "go gcc g++" \
- && curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash \
- && apk del --no-cache .tfswitch-build-deps \
- && /usr/local/bin/tfswitch ${TERRAFORM_VERSION_13} \
- && /usr/local/bin/tfswitch ${TERRAFORM_VERSION_14} \
+ && wget -q https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
+ && unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/local/bin \
+ && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
  # Clean up
  && rm /var/cache/apk/*

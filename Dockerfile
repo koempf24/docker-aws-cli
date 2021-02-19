@@ -35,7 +35,9 @@ RUN curl -L https://storage.googleapis.com/kubernetes-release/release/${KUBE_LAT
  # awscli
  && pip install awscli \
  # Terraform
+ && apk add --no-cache --virtual .tfswitch-build-deps "go gcc g++" \
  && curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash \
+ && apk del --no-cache .tfswitch-build-deps \
  && /usr/local/bin/tfswitch ${TERRAFORM_VERSION_13} \
  && /usr/local/bin/tfswitch ${TERRAFORM_VERSION_14} \
  # Clean up

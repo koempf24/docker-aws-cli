@@ -8,7 +8,7 @@ ENV KUBE_LATEST_VERSION="v1.20.4"
 ENV HELM_VERSION="v3.5.2"
 
 # @see https://www.terraform.io/downloads.html
-ENV TERRAFORM_VERSION="0.13.6"
+ENV TERRAFORM_VERSION="0.14.7"
 
 RUN apk --update add \
     bash \
@@ -22,7 +22,8 @@ RUN apk --update add \
     php \
     php-openssl \
     php-json \
-    php-curl
+    php-curl \
+    mysql-client
 
 # kubectl
 RUN curl -L https://storage.googleapis.com/kubernetes-release/release/${KUBE_LATEST_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \

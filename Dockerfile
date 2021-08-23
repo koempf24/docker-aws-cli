@@ -1,14 +1,17 @@
 # @see https://hub.docker.com/_/docker
-FROM docker:20.10.6-dind
+FROM docker:20.10.8-dind
 
 # @see https://github.com/kubernetes/kubernetes/releases
-ENV KUBE_LATEST_VERSION="v1.21.1"
+ENV KUBE_LATEST_VERSION="v1.21.4"
 
 # @see https://github.com/helm/helm/releases
-ENV HELM_VERSION="v3.5.4"
+ENV HELM_VERSION="v3.6.3"
 
 # @see https://www.terraform.io/downloads.html
-ENV TERRAFORM_VERSION="0.15.3"
+ENV TERRAFORM_VERSION="1.0.5"
+
+# @see https://getcomposer.org/
+ENV COMPOSER_VERSION="2.1.6"
 
 RUN apk --update add \
     bash \
@@ -20,9 +23,18 @@ RUN apk --update add \
     git \
     tzdata \
     php \
-    php-openssl \
-    php-json \
     php-curl \
+    php-dom \
+    php-iconv \
+    php-json \
+    php-mbstring \
+    php-openssl \
+    php-phar \
+    php-simplexml \
+    php-soap \
+    php-tokenizer \
+    php-xml \
+    php-xmlwriter \
     mysql-client
 
 # kubectl
@@ -39,4 +51,6 @@ RUN curl -L https://storage.googleapis.com/kubernetes-release/release/${KUBE_LAT
  && unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/local/bin \
  && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
  # Clean up
- && rm /var/cache/apk/*
+ && rm /var/cache/apk/* \
+ # Composer
+ && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer --version=${COMPOSER_VERSION}

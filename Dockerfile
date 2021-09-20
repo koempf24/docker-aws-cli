@@ -2,16 +2,16 @@
 FROM docker:20.10.8-dind
 
 # @see https://github.com/kubernetes/kubernetes/releases
-ENV KUBE_LATEST_VERSION="v1.21.4"
+ENV KUBE_LATEST_VERSION="v1.19.15"
 
 # @see https://github.com/helm/helm/releases
-ENV HELM_VERSION="v3.6.3"
+ENV HELM_VERSION="v3.7.0"
 
 # @see https://www.terraform.io/downloads.html
-ENV TERRAFORM_VERSION="1.0.5"
+ENV TERRAFORM_VERSION="1.0.7"
 
 # @see https://getcomposer.org/
-ENV COMPOSER_VERSION="2.1.6"
+ENV COMPOSER_VERSION="2.1.8"
 
 RUN apk --update add \
     bash \
@@ -21,6 +21,7 @@ RUN apk --update add \
     jq \
     curl \
     git \
+    rsync \
     tzdata \
     php \
     php-curl \

@@ -2,7 +2,7 @@
 FROM docker:20.10.10-dind
 
 # @see https://github.com/kubernetes/kubernetes/releases
-ENV KUBE_LATEST_VERSION="v1.21.7"
+ENV KUBE_LATEST_VERSION="v1.22.3"
 
 # @see https://github.com/helm/helm/releases
 ENV HELM_VERSION="v3.7.1"

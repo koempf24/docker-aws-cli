@@ -1,17 +1,17 @@
 # @see https://hub.docker.com/_/docker
-FROM docker:20.10.8-dind
+FROM docker:20.10.10-dind
 
 # @see https://github.com/kubernetes/kubernetes/releases
-ENV KUBE_LATEST_VERSION="v1.19.15"
+ENV KUBE_LATEST_VERSION="v1.21.7"
 
 # @see https://github.com/helm/helm/releases
-ENV HELM_VERSION="v3.7.0"
+ENV HELM_VERSION="v3.7.1"
 
 # @see https://www.terraform.io/downloads.html
-ENV TERRAFORM_VERSION="1.0.7"
+ENV TERRAFORM_VERSION="1.0.11"
 
 # @see https://getcomposer.org/
-ENV COMPOSER_VERSION="2.1.8"
+ENV COMPOSER_VERSION="2.1.12"
 
 RUN apk --update add \
     bash \

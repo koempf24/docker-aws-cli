@@ -7,10 +7,10 @@ COPY --from=docker/buildx-bin:0.8.2 /buildx /usr/libexec/docker/cli-plugins/dock
 ENV KUBE_LATEST_VERSION="v1.22.12"
 
 # @see https://github.com/helm/helm/releases
-ENV HELM_VERSION="v3.9.2"
+ENV HELM_VERSION="v3.9.3"
 
 # @see https://www.terraform.io/downloads.html
-ENV TERRAFORM_VERSION="1.2.5"
+ENV TERRAFORM_VERSION="1.2.7"
 
 # @see https://getcomposer.org/
 ENV COMPOSER_VERSION="2.3.10"

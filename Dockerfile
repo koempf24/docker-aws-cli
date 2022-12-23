@@ -1,19 +1,19 @@
 # @see https://hub.docker.com/_/docker
-FROM docker:20.10.17-dind
+FROM docker:20.10.22-dind
 # @see https://hub.docker.com/r/docker/buildx-bin/tags
 COPY --from=docker/buildx-bin:0.8.2 /buildx /usr/libexec/docker/cli-plugins/docker-buildx
 
 # @see https://github.com/kubernetes/kubernetes/releases
-ENV KUBE_LATEST_VERSION="v1.22.12"
+ENV KUBE_LATEST_VERSION="v1.22.17"
 
 # @see https://github.com/helm/helm/releases
-ENV HELM_VERSION="v3.9.3"
+ENV HELM_VERSION="v3.10.3"
 
 # @see https://www.terraform.io/downloads.html
-ENV TERRAFORM_VERSION="1.2.7"
+ENV TERRAFORM_VERSION="1.3.6"
 
 # @see https://getcomposer.org/
-ENV COMPOSER_VERSION="2.3.10"
+ENV COMPOSER_VERSION="2.5.1"
 
 RUN apk --update add \
     bash \
